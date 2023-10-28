@@ -16,11 +16,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        TableView.dataSource = self
+        TableView.dataSource = self //data inicial
+        TableView.delegate = self //recoger elementos
         TableView.tableFooterView = UIView() // para evitar que me cree celdas vacias para rellenar espacio
     }
 
 
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(myCountries[indexPath.row])
+    }
 }
 
 extension ViewController: UITableViewDataSource {
@@ -36,6 +43,9 @@ extension ViewController: UITableViewDataSource {
             cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
             cell?.backgroundColor = .green
             cell?.textLabel?.font = UIFont.systemFont(ofSize: 20)
+            cell?.selectionStyle = .default
+            //cell?.accessoryType = .checkmark
+            //cell?.accessoryType = .disclosureIndicator
         }
         
         cell!.textLabel?.text = myCountries[indexPath.row]
