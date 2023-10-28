@@ -46,8 +46,9 @@ extension ViewController: UITableViewDataSource {
         if indexPath.section == 0 {
             return 50
         } else {
-            return 200
-        }
+            //quiero celdas de tamaño dinamico
+            
+            return UITableView.automaticDimension         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,6 +74,11 @@ extension ViewController: UITableViewDataSource {
             
             cell?.myFirstLabel.text =  String(indexPath.row + 1)
             cell?.mySecondLabel.text =  myCountries[indexPath.row]
+            
+            if indexPath.row == 2 {
+                cell?.mySecondLabel.text = "asdadjasklajskdjaskjdklajdlajdkasdasdkkadkadlkaajsdkjadkakjlkakalkakdladkadjakdjkadlkajlkdadk"
+            }
+            
             
             return cell!
         }

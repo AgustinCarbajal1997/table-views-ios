@@ -17,6 +17,7 @@ class MyCustomTableViewCell: UITableViewCell {
         // operacion que se llama cuando se instancia por primera vez
         myFirstLabel.font = UIFont.boldSystemFont(ofSize: 22)
         myFirstLabel.textColor = .blue
+        mySecondLabel.numberOfLines = 0
         backgroundColor = .gray
     }
 
