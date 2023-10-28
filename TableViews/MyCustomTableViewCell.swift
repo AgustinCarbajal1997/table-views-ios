@@ -9,15 +9,21 @@ import UIKit
 
 class MyCustomTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var myFirstLabel: UILabel!
+    @IBOutlet weak var mySecondLabel: UILabel!
+    @IBOutlet weak var myImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // operacion que se llama cuando se instancia por primera vez
+        myFirstLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        myFirstLabel.textColor = .blue
+        backgroundColor = .gray
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        print(myFirstLabel.text ?? "")
     }
     
 }
