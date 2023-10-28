@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         
         TableView.dataSource = self //data inicial
         TableView.delegate = self //recoger elementos
-        TableView.tableFooterView = UIView() // para evitar que me cree celdas vacias para rellenar espacio
+        //TableView.tableFooterView = UIView() // para evitar que me cree celdas vacias para rellenar espacio
         
         //asociar la nueva vista de table cell con este controller
         TableView.register(UINib(nibName: "MyCustomTableViewCell", bundle: nil), forCellReuseIdentifier: "mycustomcell")
@@ -34,6 +34,27 @@ extension ViewController: UITableViewDelegate {
 }
 
 extension ViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Celdas simples"
+        }
+        
+        return "Celdas complejas"
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 200
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 0 {
+            return "Footer Celdas simples"
+        }
+        
+        return "Footer Celdas complejas"
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myCountries.count
     }
